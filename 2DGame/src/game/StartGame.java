@@ -1,8 +1,9 @@
 package game;
 
+import gfx.SpriteSheet;
+
 import java.awt.BorderLayout;
 import java.awt.Canvas;
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
@@ -24,6 +25,8 @@ public class StartGame extends Canvas implements Runnable{
 	
 	public int tickCount;
 	public boolean running = false;
+	
+	private SpriteSheet spriteSheet = new SpriteSheet("/SpriteSheet.png");
 	
 	private BufferedImage image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_BGR);
 	private int[] pixels = ((DataBufferInt)image.getRaster().getDataBuffer()).getData();
@@ -84,7 +87,7 @@ public class StartGame extends Canvas implements Runnable{
 			
 			if (System.currentTimeMillis() - lastTimer >= 1000) {
 				lastTimer += 1000;
-				//System.out.println(frames + ", " + ticks);
+				System.out.println(frames + ", " + ticks);
 				frames = 0;
 				ticks = 0;
 			}
